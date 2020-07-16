@@ -10,14 +10,14 @@ class Particle {
         this.radius=10;
         World.add(world,this.body);
     }
-    display(){
-        var pos =this.body.position;
-        strokeWeight(0)
-        fill(random(0,255),random(0,255),random(0,255));
-        ellipseMode(RADIUS);
-        ellipse(pos.x,pos.y,this.radius,this.radius);
-        
-        
-        
-    }
+    display(){ 
+        var pos =this.body.position; 
+        push(); 
+        translate(pos.x, pos.y); 
+        rotate(this.body.angle); 
+        strokeWeight(0); 
+        fill(random(0,255),random(0,255),random(0,255)); 
+        ellipseMode(RADIUS); 
+        ellipse(pos.x,pos.y,this.radius,this.radius); 
+        pop(); }
 }

@@ -2,7 +2,7 @@ var a,b,c,d,e,f,g;
 a = 40, b = a+70, c = b+70, d = c+70, e = d+70, f = e+70, g = f+70;
 var h,i,j,k,l;
 h = 75, i = h+70, j = i+70, k = j+70, l = k+70;
-var particle;
+var particles = [];
 const Engine = Matter.Engine;
 const World = Matter.World;
 const Bodies = Matter.Bodies;
@@ -73,10 +73,12 @@ function setup() {
   div6 = new Division(410,455);
 }
 
-  if(World.frameCount % 60 === 0){
-    particles.push(new particle(random(width/2-10,width/2+10), 10,10))
-  }
-  
+if(frameCount % 60 === 0){ 
+  particles.push(new Particle(random(width/2-10,width/2+10), 10,10)) 
+  particles.push(new Particle(random(width/2-30, width/2+30), 10)); 
+} 
+for (var j = 0; j < particles.length; j++) { 
+  particles[j].display(); }  
 }
 
 
