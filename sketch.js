@@ -7,25 +7,16 @@ const Engine = Matter.Engine;
 const World = Matter.World;
 const Bodies = Matter.Bodies;
 const Body = Matter.Body;
-const Constraint = Matter.Constraint;
-
-function preload()
-{
-	
-}
 
 function setup() {
-  createCanvas(422, 600);
+  createCanvas(460,500);
   
 	engine = Engine.create();
 	world = engine.world;
   Engine.run(engine);
 
-  ground = new Ground(225,590,450,20);  
+    ground = new Ground(width/2,height,width,20);  
 
-
-  {
-    //.-.. .----
     plinko1 = new Plinko(a,50);
     plinko2 = new Plinko(b,50);
     plinko3 = new Plinko(c,50);
@@ -33,13 +24,13 @@ function setup() {
     plinko5 = new Plinko(e,50);
     plinko6 = new Plinko(f,50);
     plinko7 = new Plinko(g,50);
-    //.-.. ..---
+    
     plinko8 = new Plinko(h,100);
     plinko9 = new Plinko(i,100);
     plinko10 = new Plinko(j,100);
     plinko11 = new Plinko(k,100);
     plinko12 = new Plinko(l,100);
-    //.-.. ...--
+   
     plinko13 = new Plinko(a,150);
     plinko14 = new Plinko(b,150);
     plinko15 = new Plinko(c,150);
@@ -47,13 +38,13 @@ function setup() {
     plinko17 = new Plinko(e,150);
     plinko18 = new Plinko(f,150);
     plinko19 = new Plinko(g,150);
-    //.-.. ....-
+   
     plinko20 = new Plinko(h,200);
     plinko21 = new Plinko(i,200);
     plinko22 = new Plinko(j,200);
     plinko23 = new Plinko(k,200);
     plinko24 = new Plinko(l,200);
-    //.-.. .....
+ 
     plinko25 = new Plinko(a,250);
     plinko26 = new Plinko(b,250);
     plinko27 = new Plinko(c,250);
@@ -61,32 +52,28 @@ function setup() {
     plinko29 = new Plinko(e,250);
     plinko30 = new Plinko(f,250);
     plinko31 = new Plinko(g,250);
+
+    div1 = new Division(10,455);
+    div2 = new Division(90,455);
+    div3 = new Division(170,455);
+    div4 = new Division(250,455);
+    div5 = new Division(330,455);
+    div6 = new Division(410,455);
 }
-
-
-{
-  div1 = new Division(10,455);
-  div2 = new Division(90,455);
-  div3 = new Division(170,455);
-  div4 = new Division(250,455);
-  div5 = new Division(330,455);
-  div6 = new Division(410,455);
-}
-
-if(frameCount % 60 === 0){ 
-  particles.push(new Particle(random(width/2-10,width/2+10), 10,10)) 
-  particles.push(new Particle(random(width/2-30, width/2+30), 10)); 
-} 
-for (var j = 0; j < particles.length; j++) { 
-  particles[j].display(); }  
-}
-
-
 function draw() {
   rectMode(CENTER);
   background(0,0,0);
 
   ground.display();
+
+  if(frameCount % 60 === 0){ 
+    //particles.push(new Particle(random(width/2-10,width/2+10), 10,10)) 
+    particles.push(new Particle(random(60, 400), 10)); 
+  } 
+  for (var j = 0; j < particles.length; j++) { 
+    particles[j].display(); }
+
+  
   plinko1.display();
   plinko2.display();
   plinko3.display();
@@ -94,13 +81,13 @@ function draw() {
   plinko5.display();
   plinko6.display();
   plinko7.display();
-  //
+  
   plinko8.display();
   plinko9.display();
   plinko10.display();
   plinko11.display();
   plinko12.display();
-  //
+  
   plinko13.display();
   plinko14.display();
   plinko15.display();
@@ -108,13 +95,13 @@ function draw() {
   plinko17.display();
   plinko18.display();
   plinko19.display();
-  //
+  
   plinko20.display();
   plinko21.display();
   plinko22.display();
   plinko23.display();
   plinko24.display();
-  //
+  
   plinko25.display();
   plinko26.display();
   plinko27.display();
@@ -130,9 +117,6 @@ function draw() {
   div4.display();
   div5.display();
   div6.display();
-
-  
-  drawSprites();
  
 }
 
