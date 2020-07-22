@@ -9,13 +9,15 @@ const Bodies = Matter.Bodies;
 const Body = Matter.Body;
 
 function setup() {
-  createCanvas(460,500);
+  createCanvas(450,580);
   
 	engine = Engine.create();
 	world = engine.world;
   Engine.run(engine);
 
-    ground = new Ground(width/2,height,width,20);  
+    ground = new Ground(width/2,height,width,20);
+    sidel = new Ground(0,290,1,600);
+    sider = new Ground(451,290,1,600);
 
     plinko1 = new Plinko(a,50);
     plinko2 = new Plinko(b,50);
@@ -65,6 +67,8 @@ function draw() {
   background(0,0,0);
 
   ground.display();
+  sidel.display();
+  sider.display();
 
   if(frameCount % 60 === 0){ 
     //particles.push(new Particle(random(width/2-10,width/2+10), 10,10)) 
